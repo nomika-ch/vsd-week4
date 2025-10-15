@@ -91,3 +91,30 @@ Several factors influence rise and fall delays:
 
 In practical CMOS inverters, delays form the rising and falling edges of output signals. Designers characterize these delays carefully because they affect the maximum speed and power consumption of digital circuits.
 
+## Noise Margin and Robustness Analysis, Power Supply and Device Variation Studies
+
+### Noise Margin
+
+Noise margin is a critical measure of how much electrical noise a CMOS circuit can tolerate without causing incorrect operation. It defines the voltage range within which noise can be superimposed on a logic signal without flipping its logical interpretation. For example, a logic '1' with added noise should still be recognized as '1' and not mistaken for '0'. Noise margins are derived from CMOS inverter voltage transfer characteristics, identifying important voltages: low input voltage (VIL), high input voltage (VIH), low output voltage (VOL), and high output voltage (VOH).
+
+In an ideal CMOS inverter, these voltages correspond directly to 0 V (logic low) and the supply voltage VDD (logic high). However, factors like voltage droop and ground bounce cause deviations, leading to modified effective levels (VSS' and VDD'). The noise margins then are:
+- Low noise margin (NML) = VIL - VOL = VSS' - 0
+- High noise margin (NMH) = VOH - VIH = VDD - VDD'
+
+These margins define the safe voltage ranges at the input to ensure reliable logical interpretation despite noise.
+
+### Robustness Analysis: Power Supply Variation
+
+Robustness in CMOS circuits often refers to their ability to maintain proper operation under variations of supply voltage and manufacturing device parameters. Power supply variation analysis studies how changes in VDD affect the switching characteristics and noise margins of the device. Lowering supply voltage reduces noise margins and slows transistor switching, which may degrade performance or cause errors.
+
+Designers use simulations to evaluate the circuit's behavior over expected supply voltage ranges. The goal is to guarantee functionality and reasonable delay even at worst-case supply conditions.
+
+### Device Variation Studies
+
+Device variations arise from manufacturing imperfections such as oxide thickness fluctuations, channel length variations, and doping inconsistencies. Such variations impact transistor threshold voltages, drive currents, and hence the noise margins and timing characteristics.
+
+Device variation analysis involves simulating the CMOS inverter across these parameter spreads to understand variation effects on noise margin, delay, and overall circuit robustness. This study guides design decisions to improve tolerance by, for example, adjusting transistor sizes or circuit topologies.
+
+---
+
+In summary, noise margins quantify how well a circuit tolerates noise without logic errors, while robustness analysis through power supply and device variation studies ensures reliable circuit operation under practical electrical and process variations.
