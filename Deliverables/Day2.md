@@ -1,4 +1,4 @@
-1. Here I observered the graph for Id vs Vds for different Values of Vgs.
+1. Here I observed the graph for Id vs Vds for different Values of Vgs.
 2. Observed the fraph for Id vs Vgs for a single Vds value.
 
 ```
